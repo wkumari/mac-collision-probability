@@ -25,7 +25,7 @@ MAIN_PAGE_HTML = """\
 MAIN_PAGE_FOOTER = """\
   <br>
   <hr>
-  <small>Copyright &copy; 2015 - Warren Kumari (warren@kumari.net) v0.2</small>
+  <small>Copyright &copy; 2015 - Warren Kumari (warren@kumari.net) v0.3</small>
   </body>
 </html>
 """
