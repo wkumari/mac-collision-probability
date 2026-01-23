@@ -1,17 +1,7 @@
-application: mac-collision-probability
-version: 1
-runtime: python27
-api_version: 1
-threadsafe: true
-
-# [START handlers]
-handlers:
-- url: /.*
-  script: probability.application
-# [END handlers]
-
-# [START libraries]
-libraries:
-- name: webapp2
-  version: latest
-# [END libraries]
+#application: mac-collision-probability
+#version: 2
+runtime: python311
+#api_version: 1
+basic_scaling:
+  max_instances: 1
+  idle_timeout: 1m
