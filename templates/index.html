@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAC Collision Probability Calculator</title>
+  <meta name="description"
+    content="Calculate the probability of MAC address collisions using the Birthday Paradox for randomly chosen addresses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Chart.js for visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <main class="container">
+    <header>
+      <h1>MAC Collision Probability</h1>
+      <p class="subtitle">A study on the <a href="https://en.wikipedia.org/wiki/Birthday_problem" target="_blank"
+          rel="noopener noreferrer">Birthday Paradox</a> within randomly generated MAC addresses.</p>
+    </header>
+
+    <section class="card info-card">
+      <h2>About This Tool</h2>
+      <p>In the <a href="https://www.ieee802.org/PrivRecsg/" target="_blank" rel="noopener noreferrer">IEEE 802 EC
+          Privacy Recommendation Study Group</a>, discussions explored how likely two stations choosing a random MAC
+        address would be to collide. Because of the Birthday paradox, probabilities are often higher than intuitive
+        expectations.</p>
+    </section>
+
+    <section class="card">
+      <div class="inputs-section">
+        <div class="form-group">
+          <label for="bits">Number of Random Bits (<span id="bits-val">32</span>)</label>
+          <div class="input-row">
+            <input type="range" id="bits" min="1" max="48" value="32">
+            <input type="number" id="bits-num" min="1" max="48" value="32">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="stations">Number of Stations (<span id="stations-val">2000</span>)</label>
+          <div class="input-row">
+            <input type="range" id="stations" min="2" max="100000" value="2000" step="10">
+            <input type="number" id="stations-num" min="2" max="100000" value="2000">
+          </div>
+        </div>
+      </div>
+
+      <div class="results-section">
+        <div class="result-card">
+          <h3>Collision Probability</h3>
+          <div class="result-value" id="prob-output">0.00000000</div>
+        </div>
+        <div class="result-card">
+          <h3>1 out of</h3>
+          <div class="result-value" id="tot-output">0.00</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card chart-card">
+      <h2>Probability Curve</h2>
+      <div class="chart-container">
+        <canvas id="probChart"></canvas>
+      </div>
+    </section>
+
+    <footer>
+      <hr>
+      <small>Copyright &copy; 2015, 2026 - Warren Kumari (warren@kumari.net) v4.0.0</small>
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
